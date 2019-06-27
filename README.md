@@ -15,9 +15,10 @@ ___
 ## USAGE
 
 #### NERDTree ####
-open NERDTree: < C + n >\
+open NERDTree: < CTRL + n >\
 open file: < ENTER >\
-open file in vsplit mode:		s
+open file in vsplit mode:		s\
+open file in hsplit mode:   i
 
 
 #### Terminal #### 
