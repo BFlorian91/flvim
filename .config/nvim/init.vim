@@ -23,6 +23,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
+Plug 'StanAngeloff/php.vim'
 
 " Debug
 Plug 'vim-syntastic/syntastic'
