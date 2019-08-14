@@ -15,15 +15,18 @@ Plug 'itchyny/lightline.vim'
 Plug 'pbondoer/vim-42header'
 
 " Theme
-Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'drewtempelmeyer/palenight.vim'
 Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 
 " Web
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
-Plug 'StanAngeloff/php.vim'
+
+" Testing
+Plug 'sheerun/vim-polyglot'
 
 " Debug
 Plug 'vim-syntastic/syntastic'
@@ -38,6 +41,7 @@ let g:user_emmet_leader_key=','
 
 "***********************************************************************"
 autocmd FileType javascript	setlocal shiftwidth=2 tabstop=2 noexpandtab
+autocmd FileType php		setlocal shiftwidth=2 tabstop=2 noexpandtab
 autocmd FileType html		setlocal shiftwidth=2 tabstop=2 noexpandtab
 autocmd FileType css		setlocal shiftwidth=4 softtabstop=4 noexpandtab
 autocmd FileType c			setlocal shiftwidth=4 softtabstop=4 noexpandtab
@@ -50,12 +54,14 @@ set noswapfile
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
+set nopaste
 set mouse=a
 
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%81v.\+', -1)
 
 "******** THEME *********"
-colorscheme palenight
+colorscheme onedark 
+let g:onedark_termcolors=256
 set termguicolors
 
 if (has("termguicolors"))
@@ -63,7 +69,7 @@ if (has("termguicolors"))
 endif
 
 let g:lightline = {
-			\ 'colorscheme': 'palenight',
+			\ 'colorscheme': 'onedark',
 			\ }
 "*******************************"
 
@@ -99,10 +105,6 @@ autocmd TermOpen * startinsert
 set splitright
 
 "*************************************"
-
-" ******* Cancel ^ + z --> undo *******"
-inoremap <c-z> <c-o>:u<CR>
-"**************************************"
 
 "*********** AUTO COMMENT *************"
 noremap c :call NERDComment(0,"toggle")<CR>
