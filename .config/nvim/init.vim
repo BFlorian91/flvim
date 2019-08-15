@@ -62,9 +62,8 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%81v.\+', -1)
 "******** THEME *********"
 colorscheme onedark 
 let g:onedark_termcolors=256
-set termguicolors
 
-if (has("termguicolors"))
+if has("termguicolors")
 	set termguicolors
 endif
 
@@ -94,8 +93,6 @@ autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 "********** TERMINAL ************"
 
 map <F2> :vsp term://zsh<CR>
-" MEMO <bar> is like | in shell and <CR> is for enter.
-inoremap <ESC> <C-\><C-n><bar>:q<CR>
 if has('macunix')
 	autocmd TermOpen * startinsert
 endif
