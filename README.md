@@ -1,4 +1,4 @@
-# NeoVim_config
+# Vim_config
 
 ## Install vim-plug manager
 ```
