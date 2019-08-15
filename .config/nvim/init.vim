@@ -95,8 +95,10 @@ autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 map <F2> :vsp term://zsh<CR>
 " MEMO <bar> is like | in shell and <CR> is for enter.
-tnoremap <ESC> <C-\><C-n><bar>:q<CR>
-autocmd TermOpen * startinsert
+inoremap <ESC> <C-\><C-n><bar>:q<CR>
+if has('macunix')
+	autocmd TermOpen * startinsert
+endif
 
 "*********************************
 
