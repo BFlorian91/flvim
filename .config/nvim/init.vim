@@ -1,11 +1,10 @@
 "************ PLUGINS ***************"
 call plug#begin('~/.vim/plugged')
 " Divers
-Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
 
 " Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -16,7 +15,6 @@ Plug 'pbondoer/vim-42header'
 
 " Theme
 "Plug 'drewtempelmeyer/palenight.vim'
-Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 
 " Web
@@ -26,7 +24,7 @@ Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 
 " Testing
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 
 " Debug
 Plug 'vim-syntastic/syntastic'
@@ -34,7 +32,6 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " ================= Web =========================
-let g:deoplete#enable_at_startup = 1
 let g:user_emmet_leader_key=','
 
 " ===============================================
@@ -57,13 +54,15 @@ set shiftwidth=4
 set nopaste
 set mouse=a
 
+
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%81v.\+', -1)
 
 "******** THEME *********"
 colorscheme onedark 
 let g:onedark_termcolors=256
+set termguicolors
 
-if has("termguicolors")
+if (has("termguicolors"))
 	set termguicolors
 endif
 
@@ -93,9 +92,9 @@ autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 "********** TERMINAL ************"
 
 map <F2> :vsp term://zsh<CR>
-if has('macunix')
-	autocmd TermOpen * startinsert
-endif
+" MEMO <bar> is like | in shell and <CR> is for enter.
+tnoremap <ESC> <C-\><C-n><bar>:q<CR>
+autocmd TermOpen * startinsert
 
 "*********************************
 
@@ -110,3 +109,28 @@ noremap c :call NERDComment(0,"toggle")<CR>
 vnoremap c :call NERDComment(0,"toggle")<CR>
 
 "**************************************"
+
+" *********** AUTOCLOSE ***************"
+inoremap " ""<left>
+inoremap "; "";<left>
+inoremap '' ''<left>
+inoremap ';' '';<left>
+
+inoremap ( ()<left>
+inoremap (; ();<left>
+inoremap (<CR> (<CR>)<ESC>O
+inoremap (;<CR> (<CR>);<ESC>O
+
+inoremap [ []<left>
+inoremap [; [];<left>
+inoremap [<CR> [<CR>]<ESC>O
+inoremap [;<CR> [<CR>];<ESC>O
+
+inoremap { {}<left>
+inoremap {; {};<left>
+inoremap {<CR> {<CR>}<ESC>O<TAB>
+inoremap {;<CR> {<CR>};<ESC>O<TAB>
+
+inoremap <?<CR> <?php<CR>?><ESC>O<TAB>
+
+" *************************************"
